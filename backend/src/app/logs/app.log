@@ -1,0 +1,1567 @@
+2024-09-16 13:50:37,452 - app.core.setup - ERROR - Error during database check or creation: connection to server at "db" (172.18.0.2), port 5432 failed: FATAL:  password authentication failed for user "matcha"
+
+2024-09-16 13:51:00,908 - app.core.setup - ERROR - Error during database check or creation: connection to server at "db" (172.18.0.2), port 5432 failed: FATAL:  password authentication failed for user "matcha"
+
+2024-09-16 13:51:23,582 - app.core.setup - INFO - Database 'pacsdb' already exists.
+2024-09-16 13:54:34,045 - app.core.setup - ERROR - Error during database check or creation: connection to server at "db" (172.20.0.2), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+2024-09-16 13:55:08,031 - app.core.setup - INFO - Database 'pacsdb' already exists.
+2024-09-16 13:55:55,038 - app.core.setup - INFO - Database 'pacsdb' already exists.
+2024-09-16 14:00:02,514 - app.core.setup - INFO - Database 'pacsdb' already exists.
+2024-09-16 14:01:39,095 - app.core.setup - INFO - Database 'pacsdb' already exists.
+2024-09-16 14:01:39,125 - app.core.setup - INFO - Table 'example_table' checked/created successfully.
+2024-09-16 14:02:14,275 - app.core.setup - INFO - Database 'pacsdb' already exists.
+2024-09-16 15:04:46,585 - app.core.setup - INFO - Database 'pacsdb' already exists.
+2024-09-16 15:20:16,231 - app.core.setup - INFO - Database 'pacsdb' already exists.
+2024-09-16 15:20:25,252 - app.core.setup - INFO - Database 'pacsdb' already exists.
+2024-09-16 15:20:41,810 - app.core.setup - INFO - Database 'pacsdb' already exists.
+2024-09-16 15:25:29,090 - app.core.setup - INFO - Database 'pacsdb' already exists.
+2024-09-16 15:32:19,568 - app.core.db.dbinit - ERROR - Error during database check or creation: name 'psycopg2' is not defined
+2024-09-16 15:32:39,343 - app.core.db.dbinit - ERROR - Error during database check or creation: name 'psycopg2' is not defined
+2024-09-16 15:32:52,056 - app.core.db.dbinit - ERROR - Error during database check or creation: name 'psycopg2' is not defined
+2024-09-16 15:33:19,436 - app.core.db.dbinit - INFO - Database 'pacsdb' already exists.
+2024-09-16 15:33:19,440 - app.core.db.dbinit - ERROR - Error during database check or creation: name 'alterTableUserQuery' is not defined
+2024-09-16 15:33:30,911 - app.core.db.dbinit - INFO - Database 'pacsdb' already exists.
+2024-09-16 15:33:30,922 - app.core.db.dbinit - ERROR - Error creating table '
+DROP TABLE IF EXISTS "USER" CASCADE; 
+CREATE TABLE IF NOT EXISTS "USER" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "username" VARCHAR(255) NOT NULL,
+  "first_name" VARCHAR(255),
+  "last_name" VARCHAR(255),
+  "email" VARCHAR(255) UNIQUE,
+  "password" VARCHAR(255),
+  "gender" VARCHAR(255),
+  "sexual_preferences" TEXT,
+  "interests" TEXT[],
+  "pictures" TEXT,
+  "fame_rating" NUMERIC,
+  "location" VARCHAR(255),
+  latitude NUMERIC,
+  latitude NUMERIC,
+  "address" VARCHAR(255),
+  "age" NUMERIC,
+  "bio" TEXT,
+  "is_verified" BOOLEAN DEFAULT FALSE,
+  "created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "reset_password_expires" TIMESTAMP,
+  "reset_password_token" TEXT DEFAULT ''
+)': column "latitude" specified more than once
+
+2024-09-16 15:33:30,936 - app.core.db.dbinit - ERROR - Error creating table '
+CREATE TABLE IF NOT EXISTS "user_views" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "viewer_id" UUID,
+  "viewed_id" UUID,
+  "view_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_viewer_id FOREIGN KEY ("viewer_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_viewed_id FOREIGN KEY ("viewed_id") REFERENCES "USER" ("id")
+);': function uuid_generate_v4() does not exist
+LINE 3:   "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+                            ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+
+2024-09-16 15:33:30,942 - app.core.db.dbinit - ERROR - Error creating table '
+CREATE TABLE IF NOT EXISTS "user_likes" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "liker_id" UUID,
+  "liked_id" UUID,
+  "like_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_liker_id FOREIGN KEY ("liker_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_liked_id FOREIGN KEY ("liked_id") REFERENCES "USER" ("id")
+);
+': function uuid_generate_v4() does not exist
+LINE 3:   "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+                            ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+
+2024-09-16 15:33:30,944 - app.core.db.dbinit - ERROR - Error creating table '
+CREATE TABLE IF NOT EXISTS "Message" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "sender_id" UUID,
+  "receiver_id" UUID,
+  "time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "content" TEXT,
+  CONSTRAINT fk_sender_id FOREIGN KEY ("sender_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_receiver_id FOREIGN KEY ("receiver_id") REFERENCES "USER" ("id")
+);
+': function uuid_generate_v4() does not exist
+LINE 3:   "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+                            ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+
+2024-09-16 15:35:24,687 - app.core.db.dbinit - INFO - Database 'pacsdb' already exists.
+2024-09-16 15:35:24,691 - app.core.db.dbinit - ERROR - Error creating table '
+DROP TABLE IF EXISTS "USER" CASCADE; 
+CREATE TABLE IF NOT EXISTS "USER" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "username" VARCHAR(255) NOT NULL,
+  "first_name" VARCHAR(255),
+  "last_name" VARCHAR(255),
+  "email" VARCHAR(255) UNIQUE,
+  "password" VARCHAR(255),
+  "gender" VARCHAR(255),
+  "sexual_preferences" TEXT,
+  "interests" TEXT[],
+  "pictures" TEXT,
+  "fame_rating" NUMERIC,
+  "location" VARCHAR(255),
+  latitude NUMERIC,
+  latitude NUMERIC,
+  "address" VARCHAR(255),
+  "age" NUMERIC,
+  "bio" TEXT,
+  "is_verified" BOOLEAN DEFAULT FALSE,
+  "created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "reset_password_expires" TIMESTAMP,
+  "reset_password_token" TEXT DEFAULT ''
+)': column "latitude" specified more than once
+
+2024-09-16 15:35:24,695 - app.core.db.dbinit - ERROR - Error creating table '
+CREATE TABLE IF NOT EXISTS "user_views" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "viewer_id" UUID,
+  "viewed_id" UUID,
+  "view_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_viewer_id FOREIGN KEY ("viewer_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_viewed_id FOREIGN KEY ("viewed_id") REFERENCES "USER" ("id")
+);': function uuid_generate_v4() does not exist
+LINE 3:   "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+                            ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+
+2024-09-16 15:35:24,697 - app.core.db.dbinit - ERROR - Error creating table '
+CREATE TABLE IF NOT EXISTS "user_likes" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "liker_id" UUID,
+  "liked_id" UUID,
+  "like_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_liker_id FOREIGN KEY ("liker_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_liked_id FOREIGN KEY ("liked_id") REFERENCES "USER" ("id")
+);
+': function uuid_generate_v4() does not exist
+LINE 3:   "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+                            ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+
+2024-09-16 15:35:24,699 - app.core.db.dbinit - ERROR - Error creating table '
+CREATE TABLE IF NOT EXISTS "Message" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "sender_id" UUID,
+  "receiver_id" UUID,
+  "time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "content" TEXT,
+  CONSTRAINT fk_sender_id FOREIGN KEY ("sender_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_receiver_id FOREIGN KEY ("receiver_id") REFERENCES "USER" ("id")
+);
+': function uuid_generate_v4() does not exist
+LINE 3:   "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+                            ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+
+2024-09-16 15:37:54,340 - app.core.db.dbinit - INFO - Database 'pacsdb' already exists.
+2024-09-16 15:37:54,394 - app.core.db.dbinit - ERROR - Error creating table '
+DROP TABLE IF EXISTS "USER" CASCADE; 
+CREATE TABLE IF NOT EXISTS "USER" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "username" VARCHAR(255) NOT NULL,
+  "first_name" VARCHAR(255),
+  "last_name" VARCHAR(255),
+  "email" VARCHAR(255) UNIQUE,
+  "password" VARCHAR(255),
+  "gender" VARCHAR(255),
+  "sexual_preferences" TEXT,
+  "interests" TEXT[],
+  "pictures" TEXT,
+  "fame_rating" NUMERIC,
+  "location" VARCHAR(255),
+  latitude NUMERIC,
+  latitude NUMERIC,
+  "address" VARCHAR(255),
+  "age" NUMERIC,
+  "bio" TEXT,
+  "is_verified" BOOLEAN DEFAULT FALSE,
+  "created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "reset_password_expires" TIMESTAMP,
+  "reset_password_token" TEXT DEFAULT ''
+)': column "latitude" specified more than once
+
+2024-09-16 15:37:54,398 - app.core.db.dbinit - ERROR - Error creating table '
+CREATE TABLE IF NOT EXISTS "user_views" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "viewer_id" UUID,
+  "viewed_id" UUID,
+  "view_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_viewer_id FOREIGN KEY ("viewer_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_viewed_id FOREIGN KEY ("viewed_id") REFERENCES "USER" ("id")
+);': function uuid_generate_v4() does not exist
+LINE 3:   "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+                            ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+
+2024-09-16 15:37:54,401 - app.core.db.dbinit - ERROR - Error creating table '
+CREATE TABLE IF NOT EXISTS "user_likes" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "liker_id" UUID,
+  "liked_id" UUID,
+  "like_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_liker_id FOREIGN KEY ("liker_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_liked_id FOREIGN KEY ("liked_id") REFERENCES "USER" ("id")
+);
+': function uuid_generate_v4() does not exist
+LINE 3:   "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+                            ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+
+2024-09-16 15:37:54,404 - app.core.db.dbinit - ERROR - Error creating table '
+CREATE TABLE IF NOT EXISTS "Message" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "sender_id" UUID,
+  "receiver_id" UUID,
+  "time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "content" TEXT,
+  CONSTRAINT fk_sender_id FOREIGN KEY ("sender_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_receiver_id FOREIGN KEY ("receiver_id") REFERENCES "USER" ("id")
+);
+': function uuid_generate_v4() does not exist
+LINE 3:   "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+                            ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+
+2024-09-16 15:38:00,653 - app.core.db.dbinit - INFO - Database 'pacsdb' already exists.
+2024-09-16 15:38:00,654 - app.core.db.dbinit - ERROR - Error creating table '
+DROP TABLE IF EXISTS "USER" CASCADE; 
+CREATE TABLE IF NOT EXISTS "USER" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "username" VARCHAR(255) NOT NULL,
+  "first_name" VARCHAR(255),
+  "last_name" VARCHAR(255),
+  "email" VARCHAR(255) UNIQUE,
+  "password" VARCHAR(255),
+  "gender" VARCHAR(255),
+  "sexual_preferences" TEXT,
+  "interests" TEXT[],
+  "pictures" TEXT,
+  "fame_rating" NUMERIC,
+  "location" VARCHAR(255),
+  latitude NUMERIC,
+  latitude NUMERIC,
+  "address" VARCHAR(255),
+  "age" NUMERIC,
+  "bio" TEXT,
+  "is_verified" BOOLEAN DEFAULT FALSE,
+  "created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "reset_password_expires" TIMESTAMP,
+  "reset_password_token" TEXT DEFAULT ''
+)': column "latitude" specified more than once
+
+2024-09-16 15:38:00,656 - app.core.db.dbinit - ERROR - Error creating table '
+CREATE TABLE IF NOT EXISTS "user_views" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "viewer_id" UUID,
+  "viewed_id" UUID,
+  "view_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_viewer_id FOREIGN KEY ("viewer_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_viewed_id FOREIGN KEY ("viewed_id") REFERENCES "USER" ("id")
+);': function uuid_generate_v4() does not exist
+LINE 3:   "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+                            ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+
+2024-09-16 15:38:00,659 - app.core.db.dbinit - ERROR - Error creating table '
+CREATE TABLE IF NOT EXISTS "user_likes" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "liker_id" UUID,
+  "liked_id" UUID,
+  "like_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_liker_id FOREIGN KEY ("liker_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_liked_id FOREIGN KEY ("liked_id") REFERENCES "USER" ("id")
+);
+': function uuid_generate_v4() does not exist
+LINE 3:   "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+                            ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+
+2024-09-16 15:38:00,662 - app.core.db.dbinit - ERROR - Error creating table '
+CREATE TABLE IF NOT EXISTS "Message" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "sender_id" UUID,
+  "receiver_id" UUID,
+  "time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "content" TEXT,
+  CONSTRAINT fk_sender_id FOREIGN KEY ("sender_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_receiver_id FOREIGN KEY ("receiver_id") REFERENCES "USER" ("id")
+);
+': function uuid_generate_v4() does not exist
+LINE 3:   "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+                            ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+
+2024-09-16 15:39:09,616 - app.core.db.dbinit - INFO - Database 'pacsdb' already exists.
+2024-09-16 15:39:09,617 - app.core.db.dbinit - ERROR - Error during database check or creation: name 'createTableMessageQuery' is not defined
+2024-09-16 15:39:20,852 - app.core.db.dbinit - INFO - Database 'pacsdb' already exists.
+2024-09-16 15:39:20,853 - app.core.db.dbinit - ERROR - Error creating table '
+DROP TABLE IF EXISTS "USER" CASCADE; 
+CREATE TABLE IF NOT EXISTS "USER" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "username" VARCHAR(255) NOT NULL,
+  "first_name" VARCHAR(255),
+  "last_name" VARCHAR(255),
+  "email" VARCHAR(255) UNIQUE,
+  "password" VARCHAR(255),
+  "gender" VARCHAR(255),
+  "sexual_preferences" TEXT,
+  "interests" TEXT[],
+  "pictures" TEXT,
+  "fame_rating" NUMERIC,
+  "location" VARCHAR(255),
+  latitude NUMERIC,
+  latitude NUMERIC,
+  "address" VARCHAR(255),
+  "age" NUMERIC,
+  "bio" TEXT,
+  "is_verified" BOOLEAN DEFAULT FALSE,
+  "created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "reset_password_expires" TIMESTAMP,
+  "reset_password_token" TEXT DEFAULT ''
+)': column "latitude" specified more than once
+
+2024-09-16 15:39:20,856 - app.core.db.dbinit - ERROR - Error creating table '
+CREATE TABLE IF NOT EXISTS "user_views" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "viewer_id" UUID,
+  "viewed_id" UUID,
+  "view_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_viewer_id FOREIGN KEY ("viewer_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_viewed_id FOREIGN KEY ("viewed_id") REFERENCES "USER" ("id")
+);': function uuid_generate_v4() does not exist
+LINE 3:   "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+                            ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+
+2024-09-16 15:39:20,859 - app.core.db.dbinit - ERROR - Error creating table '
+CREATE TABLE IF NOT EXISTS "user_likes" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "liker_id" UUID,
+  "liked_id" UUID,
+  "like_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_liker_id FOREIGN KEY ("liker_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_liked_id FOREIGN KEY ("liked_id") REFERENCES "USER" ("id")
+);
+': function uuid_generate_v4() does not exist
+LINE 3:   "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+                            ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+
+2024-09-16 15:41:44,757 - app.core.db.dbinit - INFO - Database 'pacsdb' already exists.
+2024-09-16 15:41:44,799 - app.core.db.dbinit - ERROR - Error creating table '
+DROP TABLE IF EXISTS "USER" CASCADE; 
+CREATE TABLE IF NOT EXISTS "USER" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "username" VARCHAR(255) NOT NULL,
+  "first_name" VARCHAR(255),
+  "last_name" VARCHAR(255),
+  "email" VARCHAR(255) UNIQUE,
+  "password" VARCHAR(255),
+  "gender" VARCHAR(255),
+  "sexual_preferences" TEXT,
+  "interests" TEXT[],
+  "pictures" TEXT,
+  "fame_rating" NUMERIC,
+  "location" VARCHAR(255),
+  latitude NUMERIC,
+  latitude NUMERIC,
+  "address" VARCHAR(255),
+  "age" NUMERIC,
+  "bio" TEXT,
+  "is_verified" BOOLEAN DEFAULT FALSE,
+  "created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "reset_password_expires" TIMESTAMP,
+  "reset_password_token" TEXT DEFAULT ''
+)': column "latitude" specified more than once
+
+2024-09-16 15:41:44,817 - app.core.db.dbinit - ERROR - Error creating table '
+CREATE TABLE IF NOT EXISTS "user_views" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "viewer_id" UUID,
+  "viewed_id" UUID,
+  "view_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_viewer_id FOREIGN KEY ("viewer_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_viewed_id FOREIGN KEY ("viewed_id") REFERENCES "USER" ("id")
+);': relation "USER" does not exist
+
+2024-09-16 15:41:44,821 - app.core.db.dbinit - ERROR - Error creating table '
+CREATE TABLE IF NOT EXISTS "user_likes" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "liker_id" UUID,
+  "liked_id" UUID,
+  "like_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_liker_id FOREIGN KEY ("liker_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_liked_id FOREIGN KEY ("liked_id") REFERENCES "USER" ("id")
+);
+': relation "USER" does not exist
+
+2024-09-16 15:41:44,827 - app.core.db.dbinit - ERROR - Error creating table '
+CREATE TABLE IF NOT EXISTS "Message" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "sender_id" UUID,
+  "receiver_id" UUID,
+  "time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "content" TEXT,
+  CONSTRAINT fk_sender_id FOREIGN KEY ("sender_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_receiver_id FOREIGN KEY ("receiver_id") REFERENCES "USER" ("id")
+);
+': relation "USER" does not exist
+
+2024-09-16 15:43:18,466 - app.core.db.dbinit - INFO - Database 'pacsdb' already exists.
+2024-09-16 15:43:18,472 - app.core.db.dbinit - ERROR - Error creating USER table: column "latitude" specified more than once
+
+2024-09-16 15:43:18,476 - app.core.db.dbinit - ERROR - Error creating table '
+CREATE TABLE IF NOT EXISTS "user_views" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "viewer_id" UUID,
+  "viewed_id" UUID,
+  "view_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_viewer_id FOREIGN KEY ("viewer_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_viewed_id FOREIGN KEY ("viewed_id") REFERENCES "USER" ("id")
+);': relation "USER" does not exist
+
+2024-09-16 15:43:18,488 - app.core.db.dbinit - ERROR - Error creating table '
+CREATE TABLE IF NOT EXISTS "user_likes" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "liker_id" UUID,
+  "liked_id" UUID,
+  "like_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_liker_id FOREIGN KEY ("liker_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_liked_id FOREIGN KEY ("liked_id") REFERENCES "USER" ("id")
+);
+': relation "USER" does not exist
+
+2024-09-16 15:43:18,495 - app.core.db.dbinit - ERROR - Error creating table '
+CREATE TABLE IF NOT EXISTS "Message" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "sender_id" UUID,
+  "receiver_id" UUID,
+  "time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "content" TEXT,
+  CONSTRAINT fk_sender_id FOREIGN KEY ("sender_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_receiver_id FOREIGN KEY ("receiver_id") REFERENCES "USER" ("id")
+);
+': relation "USER" does not exist
+
+2024-09-16 15:43:54,068 - app.core.db.dbinit - INFO - Database 'pacsdb' already exists.
+2024-09-16 15:43:54,072 - app.core.db.dbinit - ERROR - Error creating USER table: column "latitude" specified more than once
+
+2024-09-16 15:44:18,089 - app.core.db.dbinit - INFO - Database 'pacsdb' already exists.
+2024-09-16 15:44:18,101 - app.core.db.dbinit - INFO - USER table created successfully.
+2024-09-16 15:44:29,497 - app.core.db.dbinit - INFO - Database 'pacsdb' already exists.
+2024-09-16 15:44:29,514 - app.core.db.dbinit - INFO - USER table created successfully.
+2024-09-16 15:44:29,521 - app.core.db.dbinit - INFO - Table created successfully: 
+CREATE TABLE IF NOT EXISTS "user_views" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "viewer_id" UUID,
+  "viewed_id" UUID,
+  "view_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_viewer_id FOREIGN KEY ("viewer_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_viewed_id FOREIGN KEY ("viewed_id") REFERENCES "USER" ("id")
+);
+2024-09-16 15:44:29,526 - app.core.db.dbinit - INFO - Table created successfully: 
+CREATE TABLE IF NOT EXISTS "user_likes" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "liker_id" UUID,
+  "liked_id" UUID,
+  "like_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_liker_id FOREIGN KEY ("liker_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_liked_id FOREIGN KEY ("liked_id") REFERENCES "USER" ("id")
+);
+
+2024-09-16 15:44:29,531 - app.core.db.dbinit - INFO - Table created successfully: 
+CREATE TABLE IF NOT EXISTS "Message" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "sender_id" UUID,
+  "receiver_id" UUID,
+  "time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "content" TEXT,
+  CONSTRAINT fk_sender_id FOREIGN KEY ("sender_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_receiver_id FOREIGN KEY ("receiver_id") REFERENCES "USER" ("id")
+);
+
+2024-09-16 15:45:48,137 - app.core.db.dbinit - INFO - Database 'pacsdb' already exists.
+2024-09-16 15:45:48,156 - app.core.db.dbinit - INFO - USER table created successfully.
+2024-09-16 15:45:48,159 - app.core.db.dbinit - INFO - Table created successfully: 
+CREATE TABLE IF NOT EXISTS "user_views" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "viewer_id" UUID,
+  "viewed_id" UUID,
+  "view_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_viewer_id FOREIGN KEY ("viewer_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_viewed_id FOREIGN KEY ("viewed_id") REFERENCES "USER" ("id")
+);
+2024-09-16 15:45:48,161 - app.core.db.dbinit - INFO - Table created successfully: 
+CREATE TABLE IF NOT EXISTS "user_likes" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "liker_id" UUID,
+  "liked_id" UUID,
+  "like_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_liker_id FOREIGN KEY ("liker_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_liked_id FOREIGN KEY ("liked_id") REFERENCES "USER" ("id")
+);
+
+2024-09-16 15:45:48,162 - app.core.db.dbinit - INFO - Table created successfully: 
+CREATE TABLE IF NOT EXISTS "Message" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "sender_id" UUID,
+  "receiver_id" UUID,
+  "time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "content" TEXT,
+  CONSTRAINT fk_sender_id FOREIGN KEY ("sender_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_receiver_id FOREIGN KEY ("receiver_id") REFERENCES "USER" ("id")
+);
+
+2024-09-16 15:45:57,032 - app.core.db.dbinit - INFO - Database 'pacsdb' already exists.
+2024-09-16 15:45:57,043 - app.core.db.dbinit - INFO - USER table created successfully.
+2024-09-16 15:45:57,046 - app.core.db.dbinit - INFO - Table created successfully: 
+CREATE TABLE IF NOT EXISTS "user_views" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "viewer_id" UUID,
+  "viewed_id" UUID,
+  "view_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_viewer_id FOREIGN KEY ("viewer_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_viewed_id FOREIGN KEY ("viewed_id") REFERENCES "USER" ("id")
+);
+2024-09-16 15:45:57,048 - app.core.db.dbinit - INFO - Table created successfully: 
+CREATE TABLE IF NOT EXISTS "user_likes" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "liker_id" UUID,
+  "liked_id" UUID,
+  "like_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_liker_id FOREIGN KEY ("liker_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_liked_id FOREIGN KEY ("liked_id") REFERENCES "USER" ("id")
+);
+
+2024-09-16 15:45:57,049 - app.core.db.dbinit - INFO - Table created successfully: 
+CREATE TABLE IF NOT EXISTS "Message" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "sender_id" UUID,
+  "receiver_id" UUID,
+  "time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "content" TEXT,
+  CONSTRAINT fk_sender_id FOREIGN KEY ("sender_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_receiver_id FOREIGN KEY ("receiver_id") REFERENCES "USER" ("id")
+);
+
+2024-09-16 15:47:05,990 - app.core.db.dbinit - INFO - Database 'pacsdb' already exists.
+2024-09-16 15:47:06,001 - app.core.db.dbinit - INFO - USER table created successfully.
+2024-09-16 15:47:06,004 - app.core.db.dbinit - INFO - Table created successfully: 
+CREATE TABLE IF NOT EXISTS "user_views" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "viewer_id" UUID,
+  "viewed_id" UUID,
+  "view_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_viewer_id FOREIGN KEY ("viewer_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_viewed_id FOREIGN KEY ("viewed_id") REFERENCES "USER" ("id")
+);
+2024-09-16 15:47:06,005 - app.core.db.dbinit - INFO - Table created successfully: 
+CREATE TABLE IF NOT EXISTS "user_likes" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "liker_id" UUID,
+  "liked_id" UUID,
+  "like_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_liker_id FOREIGN KEY ("liker_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_liked_id FOREIGN KEY ("liked_id") REFERENCES "USER" ("id")
+);
+
+2024-09-16 15:47:06,007 - app.core.db.dbinit - INFO - Table created successfully: 
+CREATE TABLE IF NOT EXISTS "Message" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "sender_id" UUID,
+  "receiver_id" UUID,
+  "time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "content" TEXT,
+  CONSTRAINT fk_sender_id FOREIGN KEY ("sender_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_receiver_id FOREIGN KEY ("receiver_id") REFERENCES "USER" ("id")
+);
+
+2024-09-16 15:47:21,752 - app.core.db.dbinit - INFO - Database 'pacsdb' already exists.
+2024-09-16 15:47:21,759 - app.core.db.dbinit - INFO - USER table created successfully.
+2024-09-16 15:47:21,760 - app.core.db.dbinit - INFO - Table created successfully: 
+CREATE TABLE IF NOT EXISTS "user_views" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "viewer_id" UUID,
+  "viewed_id" UUID,
+  "view_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_viewer_id FOREIGN KEY ("viewer_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_viewed_id FOREIGN KEY ("viewed_id") REFERENCES "USER" ("id")
+);
+2024-09-16 15:47:21,761 - app.core.db.dbinit - INFO - Table created successfully: 
+CREATE TABLE IF NOT EXISTS "user_likes" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "liker_id" UUID,
+  "liked_id" UUID,
+  "like_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_liker_id FOREIGN KEY ("liker_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_liked_id FOREIGN KEY ("liked_id") REFERENCES "USER" ("id")
+);
+
+2024-09-16 15:47:21,763 - app.core.db.dbinit - INFO - Table created successfully: 
+CREATE TABLE IF NOT EXISTS "Message" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "sender_id" UUID,
+  "receiver_id" UUID,
+  "time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "content" TEXT,
+  CONSTRAINT fk_sender_id FOREIGN KEY ("sender_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_receiver_id FOREIGN KEY ("receiver_id") REFERENCES "USER" ("id")
+);
+
+2024-09-16 15:48:44,418 - app.core.db.dbinit - INFO - Database 'pacsdb' already exists.
+2024-09-16 15:48:44,426 - app.core.db.dbinit - INFO - USER table created successfully.
+2024-09-16 15:48:44,428 - app.core.db.dbinit - INFO - Table created successfully: 
+CREATE TABLE IF NOT EXISTS "user_views" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "viewer_id" UUID,
+  "viewed_id" UUID,
+  "view_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_viewer_id FOREIGN KEY ("viewer_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_viewed_id FOREIGN KEY ("viewed_id") REFERENCES "USER" ("id")
+);
+2024-09-16 15:48:44,429 - app.core.db.dbinit - INFO - Table created successfully: 
+CREATE TABLE IF NOT EXISTS "user_likes" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "liker_id" UUID,
+  "liked_id" UUID,
+  "like_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_liker_id FOREIGN KEY ("liker_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_liked_id FOREIGN KEY ("liked_id") REFERENCES "USER" ("id")
+);
+
+2024-09-16 15:48:44,430 - app.core.db.dbinit - INFO - Table created successfully: 
+CREATE TABLE IF NOT EXISTS "Message" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "sender_id" UUID,
+  "receiver_id" UUID,
+  "time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "content" TEXT,
+  CONSTRAINT fk_sender_id FOREIGN KEY ("sender_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_receiver_id FOREIGN KEY ("receiver_id") REFERENCES "USER" ("id")
+);
+
+2024-09-16 15:52:58,439 - app.core.db.dbinit - INFO - Database 'pacsdb' already exists.
+2024-09-16 15:52:58,453 - app.core.db.dbinit - INFO - USER table created successfully.
+2024-09-16 15:52:58,455 - app.core.db.dbinit - INFO - Table created successfully: 
+CREATE TABLE IF NOT EXISTS "user_views" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "viewer_id" UUID,
+  "viewed_id" UUID,
+  "view_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_viewer_id FOREIGN KEY ("viewer_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_viewed_id FOREIGN KEY ("viewed_id") REFERENCES "USER" ("id")
+);
+2024-09-16 15:52:58,456 - app.core.db.dbinit - INFO - Table created successfully: 
+CREATE TABLE IF NOT EXISTS "user_likes" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "liker_id" UUID,
+  "liked_id" UUID,
+  "like_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_liker_id FOREIGN KEY ("liker_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_liked_id FOREIGN KEY ("liked_id") REFERENCES "USER" ("id")
+);
+
+2024-09-16 15:52:58,457 - app.core.db.dbinit - INFO - Table created successfully: 
+CREATE TABLE IF NOT EXISTS "Message" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "sender_id" UUID,
+  "receiver_id" UUID,
+  "time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "content" TEXT,
+  CONSTRAINT fk_sender_id FOREIGN KEY ("sender_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_receiver_id FOREIGN KEY ("receiver_id") REFERENCES "USER" ("id")
+);
+
+2024-09-16 15:53:23,677 - app.core.db.dbinit - INFO - Database 'pacsdb' already exists.
+2024-09-16 15:53:23,699 - app.core.db.dbinit - INFO - USER table created successfully.
+2024-09-16 15:53:23,708 - app.core.db.dbinit - INFO - Table created successfully: 
+CREATE TABLE IF NOT EXISTS "user_views" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "viewer_id" UUID,
+  "viewed_id" UUID,
+  "view_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_viewer_id FOREIGN KEY ("viewer_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_viewed_id FOREIGN KEY ("viewed_id") REFERENCES "USER" ("id")
+);
+2024-09-16 15:53:23,709 - app.core.db.dbinit - INFO - Table created successfully: 
+CREATE TABLE IF NOT EXISTS "user_likes" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "liker_id" UUID,
+  "liked_id" UUID,
+  "like_time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_liker_id FOREIGN KEY ("liker_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_liked_id FOREIGN KEY ("liked_id") REFERENCES "USER" ("id")
+);
+
+2024-09-16 15:53:23,710 - app.core.db.dbinit - INFO - Table created successfully: 
+CREATE TABLE IF NOT EXISTS "Message" (
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  "sender_id" UUID,
+  "receiver_id" UUID,
+  "time" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  "content" TEXT,
+  CONSTRAINT fk_sender_id FOREIGN KEY ("sender_id") REFERENCES "USER" ("id"),
+  CONSTRAINT fk_receiver_id FOREIGN KEY ("receiver_id") REFERENCES "USER" ("id")
+);
+
+2024-09-16 16:21:56,056 - app.core.db.dbinit - INFO - Database 'pacsdb' already exists.
+2024-09-16 16:21:56,069 - app.core.db.dbinit - INFO - USER table already exists.
+2024-09-16 16:21:56,080 - app.core.db.dbinit - INFO - Table 'user_views' already exists.
+2024-09-16 16:21:56,082 - app.core.db.dbinit - INFO - Table 'user_likes' already exists.
+2024-09-16 16:21:56,083 - app.core.db.dbinit - INFO - Table 'Message' already exists.
+2024-09-16 16:22:23,167 - app.core.db.dbinit - INFO - Database 'pacsdb' already exists.
+2024-09-16 16:22:23,178 - app.core.db.dbinit - INFO - USER table already exists.
+2024-09-16 16:22:23,180 - app.core.db.dbinit - INFO - Table 'user_views' already exists.
+2024-09-16 16:22:23,182 - app.core.db.dbinit - INFO - Table 'user_likes' already exists.
+2024-09-16 16:22:23,183 - app.core.db.dbinit - INFO - Table 'Message' already exists.
+2024-09-16 16:45:31,492 - app.core.setup - INFO - Successfully connected to the database.
+2024-09-16 16:45:43,331 - app.core.setup - INFO - Successfully connected to the database.
+2024-09-16 16:45:57,371 - app.core.setup - INFO - Successfully connected to the database.
+2024-09-16 16:58:49,863 - app.core.setup - INFO - Successfully connected to the database.
+2024-09-16 17:31:48,028 - app.core.setup - INFO - Successfully connected to the database.
+2024-09-16 17:32:05,811 - app.core.setup - INFO - Successfully connected to the database.
+2024-09-16 17:47:57,792 - app.core.setup - ERROR - Error connecting to the database: connection to server at "db" (172.18.0.2), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+2024-09-16 17:48:16,453 - app.core.setup - INFO - Successfully connected to the database.
+2024-09-16 18:35:36,324 - app.core.setup - INFO - Successfully connected to the database.
+2024-09-16 18:37:54,086 - app.core.setup - INFO - Successfully connected to the database.
+2024-09-16 18:46:10,922 - app.core.setup - INFO - Successfully connected to the database.
+2024-09-16 18:48:21,774 - app.core.setup - INFO - Successfully connected to the database.
+2024-09-16 18:49:41,413 - app.core.setup - INFO - Successfully connected to the database.
+2024-09-16 18:51:00,722 - app.core.setup - INFO - Successfully connected to the database.
+2024-09-16 18:51:26,673 - app.core.setup - INFO - Successfully connected to the database.
+2024-09-16 18:52:04,021 - app.core.setup - INFO - Successfully connected to the database.
+2024-09-18 19:35:49,982 - app.core.setup - INFO - Successfully connected to the database.
+2024-09-18 19:40:23,948 - app.core.setup - INFO - Successfully connected to the database.
+2024-09-18 19:40:25,841 - app.core.setup - INFO - Successfully connected to the database.
+2024-09-18 19:41:57,823 - app.core.setup - INFO - Successfully connected to the database.
+2024-09-18 19:46:51,900 - app.core.setup - INFO - Successfully connected to the database.
+2024-09-18 19:47:41,174 - app.core.setup - INFO - Successfully connected to the database.
+2024-09-18 19:47:41,301 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 19:47:51,524 - app.core.setup - INFO - Successfully connected to the database.
+2024-09-18 19:47:51,664 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 19:48:15,652 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 19:48:16,504 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 19:50:26,745 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 19:50:49,359 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 19:54:22,467 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 19:54:23,369 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 19:57:44,210 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 19:57:57,094 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 19:59:05,453 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 19:59:06,378 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 19:59:42,580 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 19:59:43,456 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 20:00:10,045 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 20:00:10,933 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 20:01:19,951 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 20:01:20,839 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 20:01:45,502 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 20:01:46,386 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 20:02:28,409 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 20:02:29,305 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 20:03:04,059 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 20:03:12,129 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 20:03:42,045 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 20:03:42,908 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 20:08:39,140 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 20:09:54,105 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 20:10:19,808 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 20:10:20,663 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 20:10:39,812 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 20:10:40,688 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 20:10:57,190 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 20:10:58,068 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 20:11:03,141 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-18 20:11:03,983 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 19:58:31,429 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:11:59,631 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:12:02,485 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:12:17,566 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:13:33,903 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:14:44,375 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:14:45,340 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:16:09,222 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:16:10,193 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:17:41,955 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:17:42,864 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:18:25,169 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:18:26,138 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:18:54,438 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:18:55,359 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:19:13,258 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:19:14,162 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:19:59,588 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:20:00,561 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:22:07,399 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:22:08,312 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:23:19,487 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:23:20,377 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:23:41,079 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:23:42,000 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:24:10,134 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:24:11,084 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:26:16,762 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:26:17,751 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:26:39,606 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:26:40,484 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:26:54,208 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:26:55,162 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:28:06,771 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:28:07,695 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:28:50,079 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-19 20:28:50,987 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 17:17:47,079 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 17:22:09,672 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 17:22:10,681 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 17:22:16,358 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 17:22:17,261 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 17:24:26,373 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 17:24:27,326 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:08:58,412 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:08:59,607 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:10:00,306 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:10:01,236 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:10:46,069 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:10:46,991 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:11:35,385 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:11:36,678 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:11:45,662 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:11:46,624 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:11:56,784 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:11:57,693 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:12:14,811 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:12:27,043 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:13:50,244 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:13:51,201 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:14:07,566 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:15:15,305 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:15:19,525 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:15:20,449 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:16:45,322 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:16:47,756 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:18:48,942 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:18:50,827 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:18:51,739 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:18:53,362 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:19:19,326 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:19:20,278 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:20:04,150 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:20:05,089 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:22:18,690 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:22:19,647 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:24:55,958 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:24:57,008 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:39:34,957 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:39:36,243 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:40:24,075 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:40:25,025 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:41:17,238 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:41:38,785 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:42:28,277 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:42:29,221 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:42:37,869 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:43:02,689 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:44:53,616 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:44:54,559 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:45:29,564 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:45:30,542 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:45:58,916 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:45:59,896 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:47:30,559 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:47:31,476 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:50:11,445 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:50:12,429 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:50:47,036 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:50:47,997 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:52:37,540 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:52:38,591 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:53:39,120 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:53:40,095 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:54:33,536 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:54:34,463 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:59:25,413 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:59:26,409 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:59:35,781 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:59:36,711 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:59:44,390 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 18:59:47,450 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:00:15,709 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:00:16,636 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:03:15,052 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:03:15,992 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:03:45,994 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:03:46,867 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:04:41,517 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:04:42,621 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:04:51,383 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:04:52,289 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:05:03,130 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:05:19,885 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:05:57,041 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:05:58,026 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:06:38,684 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:11:25,863 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:12:11,965 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:12:12,875 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:12:25,060 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:12:25,989 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:12:52,042 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:12:52,985 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:13:09,353 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:13:10,311 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:13:27,267 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:13:28,196 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:18:38,332 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:18:39,388 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:20:48,077 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:20:49,020 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:22:01,646 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:22:02,607 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:22:14,192 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:22:15,121 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:23:27,966 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:23:37,611 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:24:59,380 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:26:01,880 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:26:04,043 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:26:04,977 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:26:08,044 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:26:23,761 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:27:24,963 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:27:25,952 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:27:39,603 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:27:50,927 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:29:15,132 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:29:28,154 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:30:25,906 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:30:38,418 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:31:59,479 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:33:04,011 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:38:20,353 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:38:21,358 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:39:49,405 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:39:50,408 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:40:30,107 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:40:31,106 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:40:36,825 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:40:37,824 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:43:53,019 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:43:53,936 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:49:29,663 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:49:30,639 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:50:07,516 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:50:08,489 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:50:44,255 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:50:45,229 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:50:52,974 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:50:53,893 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:51:00,200 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:51:01,140 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:51:35,944 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-20 19:51:36,874 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 13:54:21,114 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:04:11,794 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:05:12,290 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:08:58,863 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:08:59,857 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:09:15,268 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:09:39,630 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:20:12,136 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:21:23,914 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:22:38,599 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:22:39,600 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:22:57,603 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:22:58,597 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:23:20,283 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:23:21,247 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:23:46,791 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:23:47,754 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:24:02,236 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:24:03,246 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:24:19,583 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:24:20,629 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:35:53,410 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:35:54,395 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:36:10,221 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:36:11,160 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:39:42,775 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:39:43,726 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:39:54,559 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:39:55,528 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:40:04,677 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:40:05,653 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:41:08,072 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:41:09,025 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:42:04,102 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:42:13,991 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:50:32,539 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:50:33,474 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:50:36,415 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:50:37,339 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:51:33,306 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:51:34,289 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:51:50,827 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:51:51,750 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:52:34,049 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:52:35,018 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:52:41,822 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:52:42,772 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:53:40,117 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:53:41,060 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:54:27,692 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:54:28,670 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:54:36,473 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:54:37,391 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:54:40,865 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 14:54:41,809 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 16:57:38,425 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:04:07,835 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:04:08,802 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:07:55,609 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:07:56,555 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:08:45,940 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:08:46,877 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:08:49,012 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:08:49,888 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:09:11,882 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:09:12,789 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:09:14,193 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:09:15,079 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:20:13,624 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:20:42,867 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:21:28,424 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:21:29,338 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:21:40,494 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:21:41,432 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:21:53,108 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:21:54,042 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:22:02,345 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:22:03,230 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:24:07,938 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:24:08,887 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:25:16,243 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:25:43,174 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:26:54,508 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:27:05,358 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:36:19,847 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:36:20,802 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:36:54,274 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:36:55,213 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:39:13,742 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:39:14,715 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:39:26,400 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:39:27,309 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:39:43,079 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:39:43,979 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:41:28,120 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:41:29,036 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:41:49,951 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:41:50,870 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:42:13,580 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:42:14,478 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:43:15,199 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:43:16,120 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:43:59,806 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:44:00,700 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:45:26,275 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:45:27,209 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:45:54,484 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:45:55,401 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:46:22,218 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:46:23,096 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:46:36,875 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-21 17:46:37,775 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 14:28:36,390 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 14:34:36,660 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 14:34:37,647 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 14:38:36,921 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 14:38:37,865 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 14:42:56,905 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 14:42:57,860 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 14:55:42,484 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 14:55:43,473 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 14:55:45,196 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 14:56:16,971 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 14:58:22,321 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 14:58:23,383 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 14:58:30,365 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 14:58:31,357 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 14:59:10,581 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 14:59:11,527 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:00:43,496 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:00:44,468 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:01:33,747 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:01:34,760 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:02:22,665 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:02:23,679 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:02:24,193 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:02:25,145 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:02:50,769 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:02:51,741 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:04:29,470 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:04:30,493 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:06:16,984 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:06:17,886 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:06:26,506 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:06:27,417 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:06:38,349 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:06:39,358 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:06:44,835 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:06:45,777 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:07:08,141 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:07:09,079 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:07:22,039 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:07:22,932 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:07:34,608 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:07:35,551 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:07:37,486 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:07:38,445 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:26:41,540 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:26:54,149 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:51:03,352 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:51:04,377 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:51:21,070 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:51:22,005 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:51:55,545 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:51:56,534 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:52:25,577 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:52:53,930 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:53:55,780 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:53:56,797 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:56:31,578 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 15:56:43,812 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:00:08,322 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:00:10,132 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:01:58,505 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:01:59,483 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:09:55,912 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:09:56,851 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:10:31,919 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:10:32,919 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:10:36,867 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:10:37,778 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:12:21,403 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:12:22,299 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:13:27,708 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:13:28,617 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:15:40,042 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:15:41,011 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:15:50,607 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:15:51,597 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:17:08,920 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:17:09,866 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:17:26,424 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:17:27,308 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:17:36,429 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:17:37,377 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:18:04,716 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:18:05,632 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:18:38,538 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:18:39,502 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:18:45,458 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:18:46,379 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:20:04,293 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:27:13,638 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:28:19,432 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:28:20,359 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:30:27,966 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:30:28,966 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:30:37,487 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:30:38,428 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:31:39,928 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:31:40,978 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:34:36,609 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:35:11,696 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:36:43,765 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:38:16,029 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:38:16,980 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:40:39,627 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:40:40,672 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:41:56,623 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:42:02,494 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:46:30,772 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:46:31,798 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:46:51,628 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:46:52,578 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:47:00,019 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:47:06,190 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:49:31,507 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-22 16:50:57,045 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 12:17:32,115 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:22:37,371 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:23:44,128 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:25:45,788 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:25:46,845 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:26:44,349 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:26:45,340 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:27:32,558 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:27:33,562 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:28:25,903 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:28:26,917 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:29:12,368 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:29:13,423 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:29:34,621 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:29:35,606 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:29:51,874 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:29:52,870 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:30:13,505 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:30:14,453 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:30:59,681 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:31:48,849 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:32:34,202 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:32:35,280 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:32:47,093 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:35:19,507 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:35:43,259 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:36:14,192 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:36:25,529 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:48:39,883 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:49:03,993 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:49:04,956 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:49:35,541 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 13:49:36,516 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 14:30:29,745 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 14:30:44,665 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 14:30:55,911 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 14:30:56,871 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 14:31:18,085 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 14:31:19,087 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 14:33:19,021 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 14:33:19,985 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 14:34:13,763 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 14:34:14,694 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 14:36:58,077 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 14:36:59,065 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 14:37:00,601 - app.core.responce - ERROR - Error: Email not verified, Message: Email not verified, Details: {}
+2024-09-28 14:37:10,765 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 14:37:11,739 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 14:37:51,476 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 14:38:12,122 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 14:38:36,152 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 14:38:37,140 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 14:59:58,154 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 14:59:59,117 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 15:02:00,321 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 15:02:32,990 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 17:32:24,793 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 17:46:56,532 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 17:46:57,843 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 17:47:57,877 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 17:47:58,973 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 17:50:28,774 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 17:50:29,728 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 17:50:55,638 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 17:50:56,639 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 17:51:21,663 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 17:51:22,692 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 17:51:24,068 - app.core.responce - ERROR - Error: User already exists, Message: User with this username already exists, Details: {}
+2024-09-28 17:51:27,717 - app.core.responce - ERROR - Error: User already exists, Message: User with this username already exists, Details: {}
+2024-09-28 17:51:30,840 - app.core.responce - ERROR - Error: Email already exists, Message: User with this email already exists, Details: {}
+2024-09-28 17:52:17,672 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 17:52:28,970 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 17:52:30,544 - app.core.responce - ERROR - Error: User already exists, Message: User with this username already exists, Details: {}
+2024-09-28 17:52:33,976 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 17:52:48,797 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 17:54:27,991 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 17:54:29,027 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 17:54:30,053 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 17:54:40,164 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:09:07,312 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:09:08,635 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:12:09,116 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:12:10,112 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:13:10,982 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:13:11,965 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:13:15,629 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:13:16,579 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:13:50,583 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:13:51,673 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:14:15,053 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:14:16,024 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:14:51,703 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:14:52,683 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:15:29,809 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:15:30,805 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:16:01,823 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:16:02,805 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:18:56,154 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:18:57,113 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:19:05,214 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:19:06,154 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:21:00,877 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:21:01,822 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:22:59,771 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:23:00,773 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:24:08,202 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:24:09,197 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:26:08,431 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:26:43,369 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:27:15,753 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:27:16,684 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:27:24,308 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:27:25,255 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:30:09,215 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:30:10,219 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:30:21,079 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:30:22,059 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:32:32,905 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:32:42,067 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:33:16,269 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:33:17,219 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:33:54,883 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:33:55,898 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:34:13,614 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:34:14,567 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:36:33,596 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:36:34,553 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:36:48,497 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:36:49,778 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:37:18,458 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:37:19,422 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:39:51,958 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:39:52,958 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:40:42,327 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:41:23,251 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:41:33,889 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:42:00,615 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:42:12,522 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:42:47,652 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:43:01,372 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:43:02,309 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:43:46,082 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:43:47,064 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:44:19,538 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:44:20,502 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:44:57,149 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:44:58,118 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:45:25,234 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-28 18:45:26,217 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 15:22:20,079 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 15:51:47,064 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 15:51:48,612 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 15:53:03,878 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 15:53:04,892 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 15:53:45,112 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 15:53:54,803 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 15:54:49,365 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 15:54:50,361 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 15:58:25,088 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 15:58:26,094 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 15:58:47,273 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 15:58:48,256 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 15:59:36,126 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 15:59:37,079 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 15:59:56,127 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 15:59:57,129 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:00:06,855 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:00:25,090 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:01:23,888 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:01:24,840 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:01:34,467 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:01:35,392 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:01:37,976 - app.core.responce - ERROR - Error: User already exists, Message: User with this username already exists, Details: {}
+2024-09-29 16:01:40,456 - app.core.responce - ERROR - Error: User already exists, Message: User with this username already exists, Details: {}
+2024-09-29 16:01:55,881 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:01:56,865 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:01:59,906 - app.core.responce - ERROR - Error: User already exists, Message: User with this username already exists, Details: {}
+2024-09-29 16:04:38,235 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:04:39,251 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:04:46,248 - app.core.responce - ERROR - Error: User already exists, Message: User with this username already exists, Details: {}
+2024-09-29 16:04:46,256 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:05:04,660 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:05:11,997 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:05:49,022 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:06:10,899 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:06:11,896 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:11:37,967 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:11:39,024 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:30:00,569 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:31:36,020 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:37:15,924 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:37:16,998 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:38:10,350 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:39:53,582 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:40:28,038 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:40:29,021 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:42:43,639 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:43:00,944 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:43:36,749 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 16:43:37,758 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:11:23,202 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:14:32,883 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:18:39,246 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:18:59,482 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:19:11,459 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:19:22,372 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:30:55,651 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:31:36,030 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:31:41,216 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:31:42,199 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:31:47,395 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:31:48,395 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:38:14,379 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:38:15,420 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:48:15,694 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:48:16,723 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:48:41,486 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:48:42,655 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:49:17,699 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:50:35,570 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:51:01,202 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:51:02,245 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:51:02,763 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:51:35,158 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:54:14,202 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:54:15,275 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:54:29,393 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 17:54:30,380 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 18:01:51,423 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 18:02:18,733 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 18:02:44,343 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 18:02:45,339 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 18:15:32,593 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 18:15:33,665 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 18:23:12,360 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 18:23:13,402 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 18:23:19,113 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 18:23:20,091 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 18:24:21,026 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 18:24:27,424 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 18:25:06,300 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 18:25:07,289 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 18:25:40,912 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 18:25:41,912 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 18:26:03,439 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 18:26:04,449 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 18:42:33,743 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 18:42:34,874 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 18:43:43,610 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 18:43:44,694 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 18:44:21,410 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 18:44:22,468 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-29 18:44:27,772 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 18:34:06,657 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 18:34:43,574 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 18:45:51,775 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 18:46:41,459 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 18:46:42,483 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 18:49:02,704 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 18:49:03,816 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 18:53:15,495 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 18:53:16,925 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 18:55:21,690 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 18:55:22,712 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 18:58:41,840 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 18:58:43,744 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 18:59:18,737 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 18:59:19,862 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 18:59:24,881 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:01:01,685 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:01:08,638 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:01:56,478 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:05:09,005 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:05:10,143 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:05:17,609 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:06:05,268 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:07:08,132 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:08:29,714 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:09:50,135 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:09:51,208 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:11:14,631 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:11:23,413 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:13:08,234 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:13:09,306 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:22:16,118 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:22:17,186 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:22:38,567 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:22:39,594 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:23:33,288 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:23:34,382 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:23:55,498 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:23:56,585 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:25:59,239 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:26:00,291 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:26:25,045 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:26:26,090 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:26:30,026 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:27:40,890 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:27:50,568 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:30:25,843 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:30:32,831 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:30:41,394 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:30:47,081 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:32:06,802 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:37:34,046 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:37:35,115 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:37:43,467 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:38:00,366 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:38:08,172 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:39:03,545 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:39:12,430 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-09-30 19:39:37,534 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-10-06 16:51:43,886 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2024-10-11 19:04:10,377 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2025-03-28 18:36:19,515 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2025-03-28 18:36:23,349 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2025-03-28 18:38:57,746 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2025-03-28 18:39:59,235 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2025-03-28 18:40:23,999 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2025-03-28 20:11:43,162 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2025-03-28 20:12:38,316 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2025-03-28 20:13:17,967 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2025-03-28 20:27:08,812 - databases - INFO - Connected to database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2025-03-28 20:30:31,566 - databases - INFO - Disconnected from database postgresql+asyncpg://pacs:********@db:5432/pacsdb
+2025-03-28 20:53:28,802 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 20:55:41,875 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 20:58:37,380 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 20:59:51,409 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 21:01:09,990 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 21:02:13,085 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 21:02:23,287 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 21:04:49,513 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 21:07:05,299 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 21:07:46,900 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 21:07:57,139 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 21:10:59,148 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 21:11:18,146 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 21:11:20,572 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 21:12:20,122 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 21:13:04,934 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 21:15:27,386 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 21:18:41,099 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 21:18:51,173 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 21:26:51,605 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 22:03:11,623 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 22:04:49,350 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 22:05:08,263 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 22:06:09,547 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 22:06:26,581 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 22:07:36,062 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 22:08:11,647 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 22:11:49,812 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 22:12:45,754 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 22:13:03,033 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 22:15:04,346 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 22:15:28,750 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db:5432/backend
+2025-03-28 22:16:54,620 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-28 22:17:33,986 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-28 22:17:54,354 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-28 22:18:21,370 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-28 22:21:27,901 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-28 22:22:31,400 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-28 22:23:21,657 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
