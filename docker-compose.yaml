@@ -10,8 +10,8 @@
 #       - "389:389"
 #     env_file: docker-compose.env
 #     volumes:
-#       - ~/dcm4chee-arc/ldap:/var/lib/ldap
-#       - ~/dcm4chee-arc/slapd.d:/etc/ldap/slapd.d
+#       - ./data/pacs/ldap:/var/lib/ldap
+#       - ./data/pacs/slapd.d:/etc/ldap/slapd.d
 #   db:
 #     image: dcm4che/postgres-dcm4chee:14.5-29
 #     logging:
@@ -24,7 +24,7 @@
 #     volumes:
 #       - /etc/localtime:/etc/localtime:ro
 #       - /etc/timezone:/etc/timezone:ro
-#       - ~/dcm4chee-arc/db:/var/lib/postgresql/data
+#       - ./data/pacs/db:/var/lib/postgresql/data
 #   arc:
 #     image: dcm4che/dcm4chee-arc-psql:5.29.0
 #     logging:
@@ -50,8 +50,8 @@
 #     volumes:
 #       - /etc/localtime:/etc/localtime:ro
 #       - /etc/timezone:/etc/timezone:ro
-#       - ~/dcm4chee-arc/wildfly:/opt/wildfly/standalone
-#       - ~/dcm4chee-arc/storage:/storage
+#       - ./data/pacs/wildfly:/opt/wildfly/standalone
+#       - ./data/pacs/storage:/storage
 
 version: "3.9"
 services:
@@ -65,8 +65,8 @@ services:
       - "389:389"
     env_file: docker-compose.env
     volumes:
-      - ~/dcm4chee-arc/ldap:/var/lib/ldap
-      - ~/dcm4chee-arc/slapd.d:/etc/ldap/slapd.d
+      - ./data/pacs/ldap:/var/lib/ldap
+      - ./data/pacs/slapd.d:/etc/ldap/slapd.d
   db:
     image: dcm4che/postgres-dcm4chee:14.5-29
     logging:
@@ -79,7 +79,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
-      - ~/dcm4chee-arc/db:/var/lib/postgresql/data
+      - ./data/pacs/db:/var/lib/postgresql/data
   arc:
     image: dcm4che/dcm4chee-arc-psql:5.29.0
     logging:
@@ -105,8 +105,8 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
-      - ~/dcm4chee-arc/wildfly:/opt/wildfly/standalone
-      - ~/dcm4chee-arc/storage:/storage
+      - ./data/pacs/wildfly:/opt/wildfly/standalone
+      - ./data/pacs/storage:/storage
   db-backend:
     container_name: postgres
     image: postgres

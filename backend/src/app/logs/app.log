@@ -1565,3 +1565,218 @@ CREATE TABLE IF NOT EXISTS "Message" (
 2025-03-28 22:21:27,901 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
 2025-03-28 22:22:31,400 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
 2025-03-28 22:23:21,657 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-28 22:28:04,064 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:11:36,752 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:17:11,386 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:17:14,923 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:18:06,311 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:18:09,027 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:19:51,591 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:19:53,910 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:21:19,156 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:21:21,319 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:22:08,331 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:22:10,535 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:22:14,879 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:22:17,771 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:23:21,654 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:23:23,811 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:23:38,402 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:23:40,521 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:23:46,670 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:23:48,608 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:26:36,226 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:29:54,545 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:34:42,229 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:34:45,388 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:34:50,441 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:36:13,131 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:38:43,449 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:38:46,103 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:40:48,169 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:40:50,776 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:42:31,540 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:42:34,360 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:42:38,293 - app.services.implementation.dicom_network_interface_imp - INFO - Processing DICOM file: merged_0cc60d4e.dcm.dcm
+2025-03-29 13:42:38,294 - app.services.implementation.dicom_network_interface_imp - INFO - SOPClassUID: 1.2.840.10008.5.1.4.1.1.3.1
+2025-03-29 13:42:38,295 - app.services.implementation.dicom_network_interface_imp - INFO - Current transfer syntax: 1.2.840.10008.1.2.1
+2025-03-29 13:42:38,298 - pynetdicom.association - INFO - Requesting Association
+2025-03-29 13:42:38,348 - pynetdicom.acse - INFO - Association Accepted
+2025-03-29 13:42:38,496 - pynetdicom._handlers - INFO - Sending Store Request: MsgID 1
+2025-03-29 13:42:39,395 - pynetdicom._handlers - INFO - Received Store Response (Status: 0x0000 - Success)
+2025-03-29 13:42:39,401 - pynetdicom.association - INFO - Releasing Association
+2025-03-29 13:45:44,829 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:45:48,433 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:46:07,042 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:46:21,819 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:47:06,376 - app.services.implementation.dicom_network_interface_imp - INFO - Processing DICOM file: MultiFrame-Abdomen_1.2.276.0.26.1.1.1.2.2022.63.38611.3648539.dcm
+2025-03-29 13:47:06,377 - app.services.implementation.dicom_network_interface_imp - INFO - SOPClassUID: 1.2.840.10008.5.1.4.1.1.3.1
+2025-03-29 13:47:06,377 - app.services.implementation.dicom_network_interface_imp - INFO - Current transfer syntax: 1.2.840.10008.1.2.4.50
+2025-03-29 13:47:06,380 - pynetdicom.association - INFO - Requesting Association
+2025-03-29 13:47:06,388 - pynetdicom.acse - INFO - Association Accepted
+2025-03-29 13:47:06,488 - pynetdicom._handlers - INFO - Sending Store Request: MsgID 1
+2025-03-29 13:47:06,837 - pynetdicom._handlers - INFO - Received Store Response (Status: 0x0000 - Success)
+2025-03-29 13:47:06,840 - pynetdicom.association - INFO - Releasing Association
+2025-03-29 13:50:03,643 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:50:07,218 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:50:13,675 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:50:16,541 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:51:26,067 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:51:29,298 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:52:22,539 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:52:25,675 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:53:29,959 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:53:32,597 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:53:47,881 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:53:50,330 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:54:00,917 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:54:09,179 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:54:38,678 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:54:41,590 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:55:14,765 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:55:17,814 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:56:14,759 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:56:17,156 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 13:56:19,183 - app.services.implementation.dicom_network_interface_imp - INFO - Current transfer syntax: 1.2.840.10008.1.2.4.50
+2025-03-29 13:56:19,185 - pynetdicom.association - INFO - Requesting Association
+2025-03-29 13:56:19,191 - pynetdicom.acse - INFO - Association Accepted
+2025-03-29 13:56:19,243 - pynetdicom._handlers - INFO - Sending Store Request: MsgID 1
+2025-03-29 13:56:19,586 - pynetdicom._handlers - INFO - Received Store Response (Status: 0x0000 - Success)
+2025-03-29 13:56:19,590 - pynetdicom.association - INFO - Releasing Association
+2025-03-29 13:57:23,231 - app.services.implementation.dicom_network_interface_imp - INFO - Current transfer syntax: 1.2.840.10008.1.2.1
+2025-03-29 13:57:23,232 - pynetdicom.association - INFO - Requesting Association
+2025-03-29 13:57:23,238 - pynetdicom.acse - INFO - Association Accepted
+2025-03-29 13:57:23,628 - pynetdicom._handlers - INFO - Sending Store Request: MsgID 1
+2025-03-29 13:57:25,350 - pynetdicom._handlers - INFO - Received Store Response (Status: 0x0000 - Success)
+2025-03-29 13:57:25,362 - pynetdicom.association - INFO - Releasing Association
+2025-03-29 14:03:55,729 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 14:04:29,278 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 14:05:09,270 - app.services.implementation.dicom_network_interface_imp - INFO - Current transfer syntax: 1.2.840.10008.1.2.1
+2025-03-29 14:05:09,272 - pynetdicom.association - INFO - Requesting Association
+2025-03-29 14:05:09,307 - pynetdicom.acse - INFO - Association Accepted
+2025-03-29 14:05:09,594 - pynetdicom._handlers - INFO - Sending Store Request: MsgID 1
+2025-03-29 14:05:11,441 - pynetdicom._handlers - INFO - Received Store Response (Status: 0x0000 - Success)
+2025-03-29 14:05:11,458 - pynetdicom.association - INFO - Releasing Association
+2025-03-29 14:11:51,924 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 14:12:11,997 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 14:14:14,845 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 14:14:18,170 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 14:17:07,128 - databases - INFO - Disconnected from database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 14:17:10,072 - databases - INFO - Connected to database postgresql+asyncpg://backend:********@db-backend:5432/backend
+2025-03-29 14:17:46,303 - app.services.implementation.dicom_network_interface_imp - INFO - C-FIND query parameters: {'PatientID': 'P-00000001', 'StudyInstanceUID': '', 'StudyDate': '', 'StudyTime': '', 'StudyDescription': '', 'AccessionNumber': '', 'ModalitiesInStudy': '', 'NumberOfStudyRelatedSeries': ''}
+2025-03-29 14:17:46,304 - app.services.implementation.dicom_network_interface_imp - INFO - QueryRetrieveLevel: STUDY
+2025-03-29 14:17:46,307 - pynetdicom.association - INFO - Requesting Association
+2025-03-29 14:17:46,313 - pynetdicom.acse - INFO - Association Accepted
+2025-03-29 14:17:46,318 - pynetdicom.association - INFO - Sending Find Request: MsgID 1
+2025-03-29 14:17:46,320 - pynetdicom.association - INFO - 
+2025-03-29 14:17:46,321 - pynetdicom.association - INFO - # Request Identifier
+2025-03-29 14:17:46,323 - pynetdicom.association - INFO - (0008,0020) DA (no value available)                     # 0 StudyDate
+2025-03-29 14:17:46,324 - pynetdicom.association - INFO - (0008,0030) TM (no value available)                     # 0 StudyTime
+2025-03-29 14:17:46,324 - pynetdicom.association - INFO - (0008,0050) SH (no value available)                     # 0 AccessionNumber
+2025-03-29 14:17:46,325 - pynetdicom.association - INFO - (0008,0052) CS [STUDY]                                  # 1 QueryRetrieveLevel
+2025-03-29 14:17:46,326 - pynetdicom.association - INFO - (0008,0061) CS (no value available)                     # 0 ModalitiesInStudy
+2025-03-29 14:17:46,326 - pynetdicom.association - INFO - (0008,1030) LO (no value available)                     # 0 StudyDescription
+2025-03-29 14:17:46,326 - pynetdicom.association - INFO - (0010,0020) LO [P-00000001]                             # 1 PatientID
+2025-03-29 14:17:46,327 - pynetdicom.association - INFO - (0020,000D) UI (no value available)                     # 0 StudyInstanceUID
+2025-03-29 14:17:46,327 - pynetdicom.association - INFO - (0020,1206) IS (no value available)                     # 0 NumberOfStudyRelatedSeries
+2025-03-29 14:17:46,327 - pynetdicom.association - INFO - 
+2025-03-29 14:17:46,433 - pynetdicom.association - INFO - Find SCP Result: 0x0000 (Success)
+2025-03-29 14:17:46,433 - app.services.implementation.dicom_network_interface_imp - INFO - C-FIND query status: 0x0000
+2025-03-29 14:17:46,434 - app.services.implementation.dicom_network_interface_imp - INFO - C-FIND completed successfully
+2025-03-29 14:17:46,435 - pynetdicom.association - INFO - Releasing Association
+2025-03-29 14:18:29,622 - app.services.implementation.dicom_network_interface_imp - INFO - C-FIND query parameters: {'PatientID': 'c9be4958-7b45-40f9-b0da-efe39ae7e786', 'StudyInstanceUID': '', 'StudyDate': '', 'StudyTime': '', 'StudyDescription': '', 'AccessionNumber': '', 'ModalitiesInStudy': '', 'NumberOfStudyRelatedSeries': ''}
+2025-03-29 14:18:29,623 - app.services.implementation.dicom_network_interface_imp - INFO - QueryRetrieveLevel: STUDY
+2025-03-29 14:18:29,625 - pynetdicom.association - INFO - Requesting Association
+2025-03-29 14:18:29,631 - pynetdicom.acse - INFO - Association Accepted
+2025-03-29 14:18:29,633 - pynetdicom.association - INFO - Sending Find Request: MsgID 1
+2025-03-29 14:18:29,633 - pynetdicom.association - INFO - 
+2025-03-29 14:18:29,633 - pynetdicom.association - INFO - # Request Identifier
+2025-03-29 14:18:29,634 - pynetdicom.association - INFO - (0008,0020) DA (no value available)                     # 0 StudyDate
+2025-03-29 14:18:29,634 - pynetdicom.association - INFO - (0008,0030) TM (no value available)                     # 0 StudyTime
+2025-03-29 14:18:29,634 - pynetdicom.association - INFO - (0008,0050) SH (no value available)                     # 0 AccessionNumber
+2025-03-29 14:18:29,635 - pynetdicom.association - INFO - (0008,0052) CS [STUDY]                                  # 1 QueryRetrieveLevel
+2025-03-29 14:18:29,635 - pynetdicom.association - INFO - (0008,0061) CS (no value available)                     # 0 ModalitiesInStudy
+2025-03-29 14:18:29,635 - pynetdicom.association - INFO - (0008,1030) LO (no value available)                     # 0 StudyDescription
+2025-03-29 14:18:29,635 - pynetdicom.association - INFO - (0010,0020) LO [c9be4958-7b45-40f9-b0da-efe39ae7e786]   # 1 PatientID
+2025-03-29 14:18:29,636 - pynetdicom.association - INFO - (0020,000D) UI (no value available)                     # 0 StudyInstanceUID
+2025-03-29 14:18:29,636 - pynetdicom.association - INFO - (0020,1206) IS (no value available)                     # 0 NumberOfStudyRelatedSeries
+2025-03-29 14:18:29,636 - pynetdicom.association - INFO - 
+2025-03-29 14:18:29,705 - pynetdicom.association - INFO - Find SCP Response: 1 - 0xFF00 (Pending)
+2025-03-29 14:18:29,706 - pynetdicom.association - INFO - 
+2025-03-29 14:18:29,707 - pynetdicom.association - INFO - # Response Identifier
+2025-03-29 14:18:29,709 - pynetdicom.association - INFO - (0008,0005) CS [ISO_IR 100]                             # 1 SpecificCharacterSet
+2025-03-29 14:18:29,709 - pynetdicom.association - INFO - (0008,0020) DA [20240418]                               # 1 StudyDate
+2025-03-29 14:18:29,709 - pynetdicom.association - INFO - (0008,0030) TM [153558.820000]                          # 1 StudyTime
+2025-03-29 14:18:29,709 - pynetdicom.association - INFO - (0008,0050) SH (no value available)                     # 0 AccessionNumber
+2025-03-29 14:18:29,710 - pynetdicom.association - INFO - (0008,0052) CS [STUDY]                                  # 1 QueryRetrieveLevel
+2025-03-29 14:18:29,710 - pynetdicom.association - INFO - (0008,0054) AE [DCM4CHEE]                               # 1 RetrieveAETitle
+2025-03-29 14:18:29,710 - pynetdicom.association - INFO - (0008,0056) CS [ONLINE]                                 # 1 InstanceAvailability
+2025-03-29 14:18:29,710 - pynetdicom.association - INFO - (0008,0061) CS [US]                                     # 1 ModalitiesInStudy
+2025-03-29 14:18:29,711 - pynetdicom.association - INFO - (0008,0201) SH (no value available)                     # 0 TimezoneOffsetFromUTC
+2025-03-29 14:18:29,711 - pynetdicom.association - INFO - (0008,1030) LO [OB 2/3]                                 # 1 StudyDescription
+2025-03-29 14:18:29,711 - pynetdicom.association - INFO - (0010,0020) LO [c9be4958-7b45-40f9-b0da-efe39ae7e786]   # 1 PatientID
+2025-03-29 14:18:29,711 - pynetdicom.association - INFO - (0020,000D) UI [1.2.826.0.1.3680043.9.7496.2.67900181885128853417774707698059108] # 1 StudyInstanceUID
+2025-03-29 14:18:29,711 - pynetdicom.association - INFO - (0020,1206) IS [1]                                      # 1 NumberOfStudyRelatedSeries
+2025-03-29 14:18:29,712 - pynetdicom.association - INFO - 
+2025-03-29 14:18:29,713 - app.services.implementation.dicom_network_interface_imp - INFO - C-FIND query status: 0xFF00
+2025-03-29 14:18:29,715 - pynetdicom.association - INFO - Find SCP Result: 0x0000 (Success)
+2025-03-29 14:18:29,715 - app.services.implementation.dicom_network_interface_imp - INFO - C-FIND query status: 0x0000
+2025-03-29 14:18:29,716 - app.services.implementation.dicom_network_interface_imp - INFO - C-FIND completed successfully
+2025-03-29 14:18:29,717 - pynetdicom.association - INFO - Releasing Association
+2025-03-29 14:30:38,028 - app.services.implementation.dicom_network_interface_imp - INFO - C-FIND query parameters: {'PatientID': 'D13775-18-01-03-5', 'StudyInstanceUID': '', 'StudyDate': '', 'StudyTime': '', 'StudyDescription': '', 'AccessionNumber': '', 'ModalitiesInStudy': '', 'NumberOfStudyRelatedSeries': ''}
+2025-03-29 14:30:38,028 - app.services.implementation.dicom_network_interface_imp - INFO - QueryRetrieveLevel: STUDY
+2025-03-29 14:30:38,030 - pynetdicom.association - INFO - Requesting Association
+2025-03-29 14:30:38,035 - pynetdicom.acse - INFO - Association Accepted
+2025-03-29 14:30:38,036 - pynetdicom.association - INFO - Sending Find Request: MsgID 1
+2025-03-29 14:30:38,037 - pynetdicom.association - INFO - 
+2025-03-29 14:30:38,037 - pynetdicom.association - INFO - # Request Identifier
+2025-03-29 14:30:38,037 - pynetdicom.association - INFO - (0008,0020) DA (no value available)                     # 0 StudyDate
+2025-03-29 14:30:38,038 - pynetdicom.association - INFO - (0008,0030) TM (no value available)                     # 0 StudyTime
+2025-03-29 14:30:38,038 - pynetdicom.association - INFO - (0008,0050) SH (no value available)                     # 0 AccessionNumber
+2025-03-29 14:30:38,038 - pynetdicom.association - INFO - (0008,0052) CS [STUDY]                                  # 1 QueryRetrieveLevel
+2025-03-29 14:30:38,038 - pynetdicom.association - INFO - (0008,0061) CS (no value available)                     # 0 ModalitiesInStudy
+2025-03-29 14:30:38,039 - pynetdicom.association - INFO - (0008,1030) LO (no value available)                     # 0 StudyDescription
+2025-03-29 14:30:38,039 - pynetdicom.association - INFO - (0010,0020) LO [D13775-18-01-03-5]                      # 1 PatientID
+2025-03-29 14:30:38,040 - pynetdicom.association - INFO - (0020,000D) UI (no value available)                     # 0 StudyInstanceUID
+2025-03-29 14:30:38,040 - pynetdicom.association - INFO - (0020,1206) IS (no value available)                     # 0 NumberOfStudyRelatedSeries
+2025-03-29 14:30:38,040 - pynetdicom.association - INFO - 
+2025-03-29 14:30:38,106 - pynetdicom.association - INFO - Find SCP Response: 1 - 0xFF00 (Pending)
+2025-03-29 14:30:38,107 - pynetdicom.association - INFO - 
+2025-03-29 14:30:38,107 - pynetdicom.association - INFO - # Response Identifier
+2025-03-29 14:30:38,108 - pynetdicom.association - INFO - (0008,0005) CS [ISO_IR 100]                             # 1 SpecificCharacterSet
+2025-03-29 14:30:38,108 - pynetdicom.association - INFO - (0008,0020) DA [20180103]                               # 1 StudyDate
+2025-03-29 14:30:38,108 - pynetdicom.association - INFO - (0008,0030) TM [112615]                                 # 1 StudyTime
+2025-03-29 14:30:38,109 - pynetdicom.association - INFO - (0008,0050) SH (no value available)                     # 0 AccessionNumber
+2025-03-29 14:30:38,109 - pynetdicom.association - INFO - (0008,0052) CS [STUDY]                                  # 1 QueryRetrieveLevel
+2025-03-29 14:30:38,109 - pynetdicom.association - INFO - (0008,0054) AE [DCM4CHEE]                               # 1 RetrieveAETitle
+2025-03-29 14:30:38,109 - pynetdicom.association - INFO - (0008,0056) CS [ONLINE]                                 # 1 InstanceAvailability
+2025-03-29 14:30:38,109 - pynetdicom.association - INFO - (0008,0061) CS [US]                                     # 1 ModalitiesInStudy
+2025-03-29 14:30:38,109 - pynetdicom.association - INFO - (0008,0201) SH (no value available)                     # 0 TimezoneOffsetFromUTC
+2025-03-29 14:30:38,109 - pynetdicom.association - INFO - (0008,1030) LO [DOPPLER MORPHOLOGIQUE]                  # 1 StudyDescription
+2025-03-29 14:30:38,110 - pynetdicom.association - INFO - (0010,0020) LO [D13775-18-01-03-5]                      # 1 PatientID
+2025-03-29 14:30:38,110 - pynetdicom.association - INFO - (0020,000D) UI [1.2.276.0.26.1.1.1.2.2018.34.37575.3616661] # 1 StudyInstanceUID
+2025-03-29 14:30:38,110 - pynetdicom.association - INFO - (0020,1206) IS [1]                                      # 1 NumberOfStudyRelatedSeries
+2025-03-29 14:30:38,111 - pynetdicom.association - INFO - 
+2025-03-29 14:30:38,111 - app.services.implementation.dicom_network_interface_imp - INFO - C-FIND query status: 0xFF00
+2025-03-29 14:30:38,113 - pynetdicom.association - INFO - Find SCP Response: 2 - 0xFF00 (Pending)
+2025-03-29 14:30:38,114 - pynetdicom.association - INFO - 
+2025-03-29 14:30:38,114 - pynetdicom.association - INFO - # Response Identifier
+2025-03-29 14:30:38,115 - pynetdicom.association - INFO - (0008,0005) CS [ISO_IR 100]                             # 1 SpecificCharacterSet
+2025-03-29 14:30:38,116 - pynetdicom.association - INFO - (0008,0020) DA [20180123]                               # 1 StudyDate
+2025-03-29 14:30:38,116 - pynetdicom.association - INFO - (0008,0030) TM [105229]                                 # 1 StudyTime
+2025-03-29 14:30:38,116 - pynetdicom.association - INFO - (0008,0050) SH (no value available)                     # 0 AccessionNumber
+2025-03-29 14:30:38,116 - pynetdicom.association - INFO - (0008,0052) CS [STUDY]                                  # 1 QueryRetrieveLevel
+2025-03-29 14:30:38,116 - pynetdicom.association - INFO - (0008,0054) AE [DCM4CHEE]                               # 1 RetrieveAETitle
+2025-03-29 14:30:38,117 - pynetdicom.association - INFO - (0008,0056) CS [ONLINE]                                 # 1 InstanceAvailability
+2025-03-29 14:30:38,117 - pynetdicom.association - INFO - (0008,0061) CS [US]                                     # 1 ModalitiesInStudy
+2025-03-29 14:30:38,117 - pynetdicom.association - INFO - (0008,0201) SH (no value available)                     # 0 TimezoneOffsetFromUTC
+2025-03-29 14:30:38,117 - pynetdicom.association - INFO - (0008,1030) LO [DOPPLER MORPHOLOGIQUE]                  # 1 StudyDescription
+2025-03-29 14:30:38,117 - pynetdicom.association - INFO - (0010,0020) LO [D13775-18-01-03-5]                      # 1 PatientID
+2025-03-29 14:30:38,118 - pynetdicom.association - INFO - (0020,000D) UI [1.2.276.0.26.1.1.1.2.2018.54.35549.5521287] # 1 StudyInstanceUID
+2025-03-29 14:30:38,118 - pynetdicom.association - INFO - (0020,1206) IS [1]                                      # 1 NumberOfStudyRelatedSeries
+2025-03-29 14:30:38,118 - pynetdicom.association - INFO - 
+2025-03-29 14:30:38,118 - app.services.implementation.dicom_network_interface_imp - INFO - C-FIND query status: 0xFF00
+2025-03-29 14:30:38,119 - pynetdicom.association - INFO - Find SCP Result: 0x0000 (Success)
+2025-03-29 14:30:38,120 - app.services.implementation.dicom_network_interface_imp - INFO - C-FIND query status: 0x0000
+2025-03-29 14:30:38,121 - app.services.implementation.dicom_network_interface_imp - INFO - C-FIND completed successfully
+2025-03-29 14:30:38,122 - pynetdicom.association - INFO - Releasing Association
