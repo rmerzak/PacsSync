@@ -28,56 +28,15 @@ async def upload_file(
         return await dicom_network_interface.upload_file_dataset(dicomHandle.dicom)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-    
 
-@router.get("/find_studies")
+@router.get("/find_studie")
 @inject
 async def find_studies(
-    PatientName: Optional[str] = None,
     PatientID: Optional[str] = None,
-    StudyDate: Optional[str] = None,
     StudyInstanceUID: Optional[str] = None,
-    AccessionNumber: Optional[str] = None,  
-    dicom_network_interface: DicomNetworkInterface = Depends(Provide[Container.dicom_network_interface])
-):
-    query_params = {}
-    if PatientName:
-        query_params["PatientName"] = PatientName
-    if PatientID:
-        query_params["PatientID"] = PatientID
-    if StudyDate:
-        query_params["StudyDate"] = StudyDate
-    if StudyInstanceUID:
-        query_params["StudyInstanceUID"] = StudyInstanceUID
-    if AccessionNumber:
-        query_params["AccessionNumber"] = AccessionNumber
-    return await dicom_network_interface.find_studies(query_params)
-
-@router.get("/find_patient")
-@inject
-async def find_patient(
-    PatientID: str,
-    dicom_network_interface: DicomNetworkInterface = Depends(Provide[Container.dicom_network_interface])
-):
-    """
-    Find patient information using PatientID.
-    This endpoint performs a DICOM C-FIND operation at the PATIENT level.
-    """
-    query_params = {
-        "PatientID": PatientID,
-        # Add any additional attributes you want to retrieve
-        "PatientName": "",
-        "PatientBirthDate": "",
-        "PatientSex": ""
-    }
-    
-    result = await dicom_network_interface.find_studies(query_params)
-    return result
-
-@router.get("/find_studies_by_patient")
-@inject
-async def find_studies_by_patient(
-    PatientID: str,
+    AccessionNumber: Optional[str] = None,
+    ModalitiesInStudy: Optional[str] = None,
+    PatientName: Optional[str] = None,
     dicom_network_interface: DicomNetworkInterface = Depends(Provide[Container.dicom_network_interface])
 ):
     """
@@ -85,15 +44,60 @@ async def find_studies_by_patient(
     This endpoint performs a DICOM C-FIND operation at the STUDY level.
     """
     query_params = {
-        "PatientID": PatientID,
-        "StudyInstanceUID": "",
+        "PatientID": PatientID or "",
+        "StudyInstanceUID": StudyInstanceUID or "",
         "StudyDate": "",
         "StudyTime": "",
         "StudyDescription": "",
-        "AccessionNumber": "",
-        "ModalitiesInStudy": "",
-        "NumberOfStudyRelatedSeries": ""
+        "AccessionNumber": AccessionNumber or "",
+        "ModalitiesInStudy": ModalitiesInStudy or "",
+        "NumberOfStudyRelatedSeries": "",
+        "PatientName": PatientName or "",
+        "PixelData": ""
     }
     
-    result = await dicom_network_interface.find_studies(query_params)
-    return result
+    return await dicom_network_interface.find_studies(query_params)
+
+@router.get("/get_study")
+@inject
+async def get_study(
+    StudyInstanceUID: str,
+    dicom_network_interface: DicomNetworkInterface = Depends(Provide[Container.dicom_network_interface])
+):
+    """
+    Retrieve a complete study including all DICOM instances.
+    
+    This endpoint performs a DICOM C-GET operation to retrieve all SOP Instances
+    related to the specified study. The operation includes pixel data and all
+    metadata for each instance.
+    
+    Args:
+        StudyInstanceUID: The Study Instance UID to retrieve
+        
+    Returns:
+        A DicomResult containing all retrieved instances with their metadata
+    """
+    return await dicom_network_interface.get_study_with_pixels(StudyInstanceUID)
+
+@router.get("/find_and_get_study")
+@inject
+async def find_and_get_study(
+    StudyInstanceUID: str,
+    dicom_network_interface: DicomNetworkInterface = Depends(Provide[Container.dicom_network_interface])
+):
+    """
+    Find study details and then retrieve the complete study with appropriate storage contexts.
+    
+    This endpoint performs a two-step operation:
+    1. C-FIND to get study details and determine modalities
+    2. C-GET to retrieve all instances with the appropriate storage contexts
+    
+    The response is organized by series for easier navigation.
+    
+    Args:
+        StudyInstanceUID: The Study Instance UID to find and retrieve
+        
+    Returns:
+        A DicomResult containing study details, series information, and all instances
+    """
+    return await dicom_network_interface.find_and_get_study(StudyInstanceUID)

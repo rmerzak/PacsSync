@@ -54,5 +54,18 @@ class DicomNetworkInterface(ABC):
     def move_study(self, study_instance_uid: str, destination_ae: str) -> DicomResult:
         """Move study to another AE using C-MOVE."""
         pass
+    
+    @abstractmethod
+    def get_study_with_pixels(self, study_instance_uid: str) -> DicomResult:
+        """Retrieve complete DICOM data for a study including pixel data using C-GET."""
+        pass
+
+    @abstractmethod
+    async def find_and_get_study(self, study_instance_uid: str) -> DicomResult:
+        """
+        First find study details using C-FIND, then retrieve the complete study using C-GET.
+        This two-step approach allows determining the appropriate storage contexts before retrieval.
+        """
+        pass
 
 
