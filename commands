@@ -1,0 +1,22 @@
+# Create or append to .gitignore
+echo "*.dcm" >> .gitignore
+echo "dicom/" >> .gitignore
+echo "dicom_test/" >> .gitignore
+
+# Remove the files from Git tracking but keep them on your disk
+git rm --cached dicom/*.dcm
+git rm --cached dicom_test/*.dcm
+
+# If you have other DICOM files in different directories
+git rm --cached "*.dcm"
+
+# If you want to remove entire directories
+git rm --cached -r dicom/
+git rm --cached -r dicom_test/
+
+# Commit the .gitignore and removal of tracked files
+git add .gitignore
+git commit -m "Remove DICOM files from Git tracking"
+
+# Push the changes to GitHub
+git push origin main 

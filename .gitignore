@@ -1,1 +1,4 @@
+data/*.dcm
 data/*
+dicom/
+dicom_test/
