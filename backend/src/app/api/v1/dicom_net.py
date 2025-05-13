@@ -79,25 +79,31 @@ async def get_study(
     """
     return await dicom_network_interface.get_study_with_pixels(StudyInstanceUID)
 
-@router.get("/find_and_get_study")
+
+@router.get("/get_instance")
 @inject
-async def find_and_get_study(
+async def get_instance(
     StudyInstanceUID: str,
+    SeriesInstanceUID: str,
+    SOPInstanceUID: str,
     dicom_network_interface: DicomNetworkInterface = Depends(Provide[Container.dicom_network_interface])
 ):
     """
-    Find study details and then retrieve the complete study with appropriate storage contexts.
+    Retrieve a specific DICOM instance with its pixel data.
     
-    This endpoint performs a two-step operation:
-    1. C-FIND to get study details and determine modalities
-    2. C-GET to retrieve all instances with the appropriate storage contexts
-    
-    The response is organized by series for easier navigation.
+    This endpoint performs a DICOM C-GET operation at the INSTANCE level to retrieve
+    a specific SOP Instance. The operation includes pixel data and all metadata.
     
     Args:
-        StudyInstanceUID: The Study Instance UID to find and retrieve
+        StudyInstanceUID: The Study Instance UID
+        SeriesInstanceUID: The Series Instance UID
+        SOPInstanceUID: The SOP Instance UID
         
     Returns:
-        A DicomResult containing study details, series information, and all instances
+        A DicomResult containing the instance metadata and pixel data information
     """
-    return await dicom_network_interface.find_and_get_study(StudyInstanceUID)
+    return await dicom_network_interface.get_instance_with_pixels(
+        StudyInstanceUID, 
+        SeriesInstanceUID, 
+        SOPInstanceUID
+    )

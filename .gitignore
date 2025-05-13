@@ -2,3 +2,5 @@ data/*.dcm
 data/*
 dicom/
 dicom_test/
+dicom_videos/
+volumes/

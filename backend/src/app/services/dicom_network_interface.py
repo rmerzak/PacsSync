@@ -56,15 +56,30 @@ class DicomNetworkInterface(ABC):
         pass
     
     @abstractmethod
-    def get_study_with_pixels(self, study_instance_uid: str) -> DicomResult:
-        """Retrieve complete DICOM data for a study including pixel data using C-GET."""
+    async def get_study_with_pixels(self, study_instance_uid: str) -> DicomResult:
+        """
+        Retrieve complete DICOM data for a study including pixel data using C-GET.
+        
+        Args:
+            study_instance_uid: The Study Instance UID to retrieve
+            
+        Returns:
+            DicomResult containing the retrieved DICOM data
+        """
         pass
 
     @abstractmethod
-    async def find_and_get_study(self, study_instance_uid: str) -> DicomResult:
+    async def get_instance_with_pixels(self, study_instance_uid: str, series_instance_uid: str, sop_instance_uid: str) -> DicomResult:
         """
-        First find study details using C-FIND, then retrieve the complete study using C-GET.
-        This two-step approach allows determining the appropriate storage contexts before retrieval.
+        Retrieve a specific DICOM instance with its pixel data.
+        
+        Args:
+            study_instance_uid: The Study Instance UID
+            series_instance_uid: The Series Instance UID
+            sop_instance_uid: The SOP Instance UID
+            
+        Returns:
+            DicomResult containing the instance metadata and pixel data
         """
         pass
 

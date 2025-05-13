@@ -19,4 +19,64 @@ git add .gitignore
 git commit -m "Remove DICOM files from Git tracking"
 
 # Push the changes to GitHub
-git push origin main 
+git push origin main
+
+# Remove all .dcm files from the entire history
+git filter-branch --force --index-filter \
+  "git rm --cached --ignore-unmatch *.dcm dicom/*.dcm dicom_test/*.dcm" \
+  --prune-empty --tag-name-filter cat -- --all
+
+# Force garbage collection
+git for-each-ref --format="delete %(refname)" refs/original | git update-ref --stdin
+git reflog expire --expire=now --all
+git gc --prune=now --aggressive
+
+# Force push to overwrite remote history
+git push origin --force
+
+# Download BFG
+curl -o bfg.jar https://repo1.maven.org/maven2/com/madgag/bfg/1.14.0/bfg-1.14.0.jar
+
+# Create a fresh clone for cleaning (this is important)
+git clone --mirror git@github.com:rmerzak/PacsSync.git PacsSync-mirror
+
+# Run BFG to remove large files
+java -jar bfg.jar --delete-files "*.dcm" PacsSync-mirror
+
+# Clean up and update the repository
+cd PacsSync-mirror
+git reflog expire --expire=now --all
+git gc --prune=now --aggressive
+
+# Push the cleaned repository
+git push
+
+# Go back to your original repository
+cd ..
+
+# Create a new directory for your clean repository
+mkdir PacsSync-clean
+cd PacsSync-clean
+
+# Initialize a new Git repository
+git init
+
+# Copy your current files (excluding .git and the DICOM files)
+cp -r ../PacsSync/* .
+rm -rf dicom dicom_test
+rm -f *.dcm
+
+# Add .gitignore first
+echo "*.dcm" > .gitignore
+echo "dicom/" >> .gitignore
+echo "dicom_test/" >> .gitignore
+
+# Add and commit your files
+git add .
+git commit -m "Initial commit with clean repository"
+
+# Add your GitHub repository as remote
+git remote add origin git@github.com:rmerzak/PacsSync.git
+
+# Force push to the main branch
+git push -f origin main 

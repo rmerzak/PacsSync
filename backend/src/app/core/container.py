@@ -28,6 +28,9 @@ class Container(containers.DeclarativeContainer):
         server_ip="arc",  # This should match your PACS service name in docker-compose
         server_port=11112, 
         server_ae_title="DCM4CHEE", 
+        # server_ip="orthanc",
+        # server_ae_title="ORTHANC",
+        # server_port=4242,
         local_ae_title="PYNETDICOM",
         timeout=60  # Increased timeout for larger queries
     )
